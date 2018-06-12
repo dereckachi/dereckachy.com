@@ -1,0 +1,547 @@
+$main-color: #0f40d9
+$accent-color: cyan
+$link-color: #40bebe
+$body-text-color: #727376
+
+body
+  margin: 0
+  text-rendering: optimizeLegibility
+  -webkit-font-smoothing: antialiased
+
+h1, h2, h3, h4, h5, h6, label, a, ul
+  font-family: 'Roboto Slab', 'Lucida Bright', 'Times New Roman', Georgia, serif
+  font-weight: normal
+
+a, button
+  &:focus
+    outline: none
+
+p, input, textarea
+  font-family: 'Roboto', Arial, Verdana, Tahoma, sans-serif
+  font-weight: 300
+
+.page-title, section > .heading
+  margin-left: 80px
+
+.container
+  width: 100%
+  box-sizing: border-box
+  // padding: 15px
+  // overflow: hidden
+  max-width: 1200px
+  margin: 0 auto
+.header
+  height: 300px
+  width: 100%
+
+  div
+    position: absolute
+    height: inherit
+    width: inherit
+
+  .header-img
+    background-image: url(../img/hero-img.jpg)
+    background-position: center
+    background-size: cover
+    opacity: 0.8
+
+  .gradient-overlay
+    background-image: linear-gradient(90deg, $main-color, $accent-color)
+    opacity: 0.8
+
+  .header-content
+    max-width: 1200px
+    height: 300px
+    position: relative
+    margin: 0 auto
+    color: white
+
+    nav
+      height: 100px
+      width: inherit
+      position: relative
+
+      .logo
+        font-family: 'Slabo 13px'
+        font-size: 66.6672px
+        line-height: 66.6672px
+        font-weight: 200
+        color: $accent-color
+        display: inline-block
+        transform: translateY(24px)
+        text-decoration: none
+
+        &:focus
+          outline: 1px dotted white
+
+      .nav-toggle
+        height: 22px
+        width: 32px
+        cursor: pointer
+        background-color: transparent
+        border: none
+        overflow: visible
+        display: inline-block
+        padding: 0
+        right: 0
+        top: 50%
+        transform: translateY(-50%)
+        position: absolute
+
+        &:focus
+          outline: none
+
+        .nav-toggle-inner
+          display: block
+          height: 4px
+          width: 100%
+          position: relative
+          background: $main-color
+
+          &::before, &::after
+            height: inherit
+            width: inherit
+            background: inherit
+            left: 0
+            content: ''
+            position: absolute
+            transition: transform 0.4s cubic-bezier(0, 1.34, 0.51, 1.35)
+
+          &::before
+            top: -8px
+          &::after
+            bottom: -8px
+
+        &:hover .nav-toggle-inner, &:focus .nav-toggle-inner
+          &::before
+            transform: translateY(-4px)
+          &::after
+            transform: translateY(4px)
+        &:hover > .nav-toggle-inner
+
+    .page-title
+      font-size: 75.0006px
+      margin-top: 0
+      letter-spacing: 1.5px
+
+.btn-action, .results
+  height: 0px
+  width: 0px
+  display: block
+  overflow: hidden
+
+.intro > .heading
+  font-size: 58.3338px
+  color: #606062
+
+  span
+    color: $main-color
+
+section > p
+  font-size: 25px
+  width: 670px
+  color: $body-text-color
+  text-align: center
+  line-height: 150%
+  font-weight: 400
+  margin: 0 auto
+
+.main-content > .heading
+  margin-top: 120px
+  margin-bottom: 0
+  display: inline-block
+  padding-bottom: 8px
+  line-height: 16.6668px
+  font-size: 16.6668px
+  color: #727376
+  border-bottom: 2px solid $main-color
+
+#contact-form
+  margin-top: 60px
+  margin-bottom: 244px
+  position: relative
+
+  .input-group
+    width: 712px
+    height: 37px
+    box-sizing: border-box
+    margin: 0 auto
+    margin-bottom: 30px
+    position: relative
+
+    &:nth-child(4)
+      margin-bottom: 0
+
+
+    label, input, textarea
+      font-size: 25px
+      height: 22px
+      line-height: 22px
+      padding: 0
+      font-weight: 300
+
+    label
+      position: absolute
+      top: 0
+      left: 1
+      color: #96989A
+      line-height: 22px
+      pointer-events: none
+      transform-origin: top left
+      transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), color 0.3s cubic-bezier(0.4,0,0.2,1)
+
+    input, textarea
+      width: 100%
+      box-sizing: content-box
+      padding-bottom: 17px
+      color: $body-text-color
+      border: none
+      border-bottom: 1px solid #D2D3D5
+
+      &:focus
+        outline: none
+
+      &:focus + label
+        transform: translate3d(0,-20px,0) scale(0.5)
+        color: $main-color
+
+      &:focus ~ .animated-border
+        transform: scale(1)
+        opacity: 1
+        transition: transform 0.3s cubic-bezier(0.4,0,0.2,1)
+
+    .animated-border
+      position: absolute
+      height: 2px
+      width: 100%
+      bottom: -3px
+      background-color: $main-color
+      transform: scale(0)
+      opacity: 0
+      transition: opacity 0.3s cubic-bezier(0.4,0,0.2,1), transform 0.3s 0.3s cubic-bezier(0.4,0,0.2,1)
+
+    textarea
+      // appearance: hdden
+
+    .lead-name
+      text-transform: capitalize
+
+  .submit-btn
+    margin-top: 55px
+    width: 140px
+    height: 43px
+    border: 2px solid $link-color
+    display: block
+    margin-left: auto
+    margin-right: 163px
+    position: relative
+    color: $link-color
+    text-align: center
+    overflow: hidden
+    cursor: pointer
+    animation: clicked 0.5s cubic-bezier(0.19, 1, 0.22, 1)
+
+    &:active
+      border-color: #26d8d8
+      color: #26d8d8
+
+
+    input
+      width: 144px
+      height: 47px
+      left: -2
+      top: -2
+      position: absolute
+      border: none
+      opacity: 0
+      padding: 0
+      pointer-events: none
+
+    label
+      line-height: 43px
+      font-size: 25px
+      cursor: pointer
+
+      span:first-child
+        letter-spacing: 2px
+
+
+.action-arrow
+  font-family: 'Cambria Math'
+  display: inline-block
+
+@keyframes action
+  50%
+    opacity: 0
+    transform: translateX(200%)
+  100%
+    opacity: 1
+    transform: translateX(0%)
+
+@keyframes clicked
+  100%
+    color: #26d8d8
+    border-color: #26d8d8
+
+.footer
+  background: #F8F8F8
+
+.external-links
+  padding-top: 215px
+
+  a:hover, a:focus
+    .fil0
+      fill: $body-text-color
+.e-mail
+  color: #A9ABAE
+  text-decoration: none
+  margin-left: 83px
+  font-size: 33.3338px
+  transition: color 0.3s cubic-bezier(0.4,0,0.2,1)
+  &:hover, &:focus
+    color: $body-text-color
+.social-media
+  margin-right: 83px
+  float: right
+  a
+    display: inline-block
+    svg
+      pointer-events: none
+    .fil0
+      fill: #A9ABAE
+      fill-rule: nonzero
+      transition: fill 0.3s cubic-bezier(0.4,0,0.2,1)
+  .facebook
+    height: 39px
+    width: 20px
+    margin-right: 25px
+  .linkedin
+    height: 39px
+    width: 38px
+    margin-right: 25px
+  .behance
+    height: 30px
+    width: 48px
+
+.copyright
+  margin: 0
+  margin-top: 50px
+  padding-bottom: 45px
+  margin-left: 83px
+  font-size: 16.6668px
+  color: #BDBFC1
+
+
+.service-display-area
+  height: 1986px
+  overflow: hidden
+.service-display
+  position: relative
+  margin-top: 40px
+
+  .guide-line
+    height: 1500px
+    width: 1px
+    background-color: #97b9ff
+    position: absolute
+    top: 0
+    left: 50%
+    transform: translateX(-50%)
+
+
+  .service-module
+    height: 600px
+    width: 386px
+    background-color: white
+    box-shadow: 0 30px 100px #bbb
+    margin-bottom: 50px
+    position: relative
+
+    &:nth-child(4)
+      margin-top: -100px
+
+    &:nth-child(2n+2)
+      margin-left: 163px
+    &:nth-child(2n+1)
+      margin-left: auto
+      margin-right: 163px
+
+    @for $i from 3 through 5
+      &:nth-child(#{$i})
+        top: (-250px * ($i - 2))
+
+    .service-cat
+      height: 400px
+      width: 386px
+      background-color: #999
+      position: relative
+      overflow: hidden
+      color: white
+    .service-cat-img
+      height: 400px
+      width: 514px
+      left: 50%
+      transform: translateX(-50%)
+      position: absolute
+    .service-cat-info
+      height: 100%
+      width: 100%
+      background-color: rgba(0,0,0,0.5)
+      box-sizing: border-box
+      padding-top: 80px
+      padding-left: 35px
+      position: relative
+    .service-cat-name
+      font-size: 50px
+      margin: 0
+    .service-cat-why
+      font-size: 16.6667px
+      color: #bbb
+      height: 142px
+      width: 332px
+      line-height: 120%
+      font-weight: 400
+
+
+
+  .service-items
+    height: 200px
+    width: 386px
+    padding-top: 20px
+    position: relative
+
+    .list-count
+      height: 80px
+      width: 1px
+      display: inline-block
+      position: absolute
+      top: 20px
+      left: 35px
+      background-color: #97b9ff
+
+      &::before, &::after
+        content: ''
+        height: 9px
+        width: 9px
+        border: 1px solid #97b9ff
+        border-radius: 50%
+        position: absolute
+        background: white
+        left: 50%
+        transform: translateX(-50%)
+
+      &::before
+        top: 28px
+
+      &::after
+        top: 71px
+    ul
+      list-style: none
+      color: $body-text-color
+      font-size: 25px
+      line-height: 24px
+      padding: 0
+      margin: 0
+      margin-left: 65px
+      padding-top: 19px
+
+      li:nth-child(2)
+        margin-top: 18px
+
+.what-next
+  text-align: center
+  margin-top: 100px
+  padding-bottom: 160px
+
+.what-next-link
+  text-decoration: none
+  color: $link-color
+  font-size: 50px
+  line-height: 50px
+  overflow: hidden
+
+.action:hover .action-arrow, .action:focus .action-arrow
+  animation: action .9s cubic-bezier(0.26, 1.9, 0.63, 0.67)
+
+.site-hero
+  overflow: hidden
+  height: 100vh
+
+  .header-content
+    height: 100%
+
+  h1
+    margin-top: 50px !important
+    height: auto
+    margin-bottom: 0
+    position: relative
+
+  span
+    color: rgba(255,255,255,0.6)
+    display: block
+    line-height: 1em
+    position: absolute
+    left: 0
+    top: 0
+
+    &:nth-child(3)
+      margin-top: 30px
+
+    &:nth-child(6)
+      margin-top: 170px
+
+  br
+    font-size: 0
+
+  .site-intro
+    font-size: 16.6668px
+
+  .what-i-do
+    height: 55px
+    text-indent: -2px
+    line-height: 50px
+
+  .hero-container
+    height: 203px
+    width: 1060px
+    margin: 0
+
+    &::after, &::before
+      height: 4px
+      width: 100%
+      background-color: white
+      content: ''
+      left: 0
+      position: absolute
+      opacity: 0
+      transform-origin: left
+      transform: scaleX(0)
+      animation: distinguish 1.2s 2200ms ease forwards
+
+    &::after
+      bottom: -25px
+    &::before
+      top: -25px
+
+  .hero-text .unit
+    fill: #fff
+    fill-rule: nonzero
+    transform: scaleY(2) rotateY(180deg)
+    transform-origin:  right
+    position: relative
+    opacity: 0
+    animation: drop-in 0.6s cubic-bezier(0.4,0,0.2,1) forwards
+
+    @for $i from 1 through 11
+      &:nth-child(#{$i})
+        animation-delay: (1000ms + (($i * 100) - 100ms))
+
+@keyframes drop-in
+  100%
+    opacity: 1
+    transform: scaleY(1) rotateY(0)
+
+@keyframes distinguish
+  100%
+    opacity: 1
+    transform: scaleX(1)
