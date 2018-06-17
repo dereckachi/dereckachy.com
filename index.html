@@ -8,14 +8,22 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet"/>
   </head>
   <body>
-    <div class="off-page-nav"></div>
+    <nav class="off-page calss" role="navigation" aria-hidden="true">
+      <div class="guide-line"></div>
+      <ul>
+        <li class="nav-link"><a class="action" href="/dereckachy/services/">Services<span class="action-arrow">⟶</span></a></li>
+        <li class="nav-link"><a class="action" href="/dereckachy/contact/">Contact<span class="action-arrow">⟶</span></a></li>
+        <li class="nav-link"><a class="action" href="/dereckachy/portfolio/">Portfolio<span class="action-arrow">⟶</span></a></li>
+        <li class="nav-link"><a class="action" href="/dereckachy/about/">About<span class="action-arrow">⟶</span></a></li>
+      </ul>
+    </nav>
+    <div id="mast-head"><a class="logo" href="http://dereckachy.github.io/dereckachy" title="Dereckachy Home">d</a>
+      <button class="nav-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" onclick="toggleMenu()"><span class="nav-toggle-inner"></span><span class="btn-action">Toggle Navigation</span></button>
+    </div>
     <header class="header site-hero" role="banner">
       <div class="header-img"></div>
       <div class="gradient-overlay"></div>
       <div class="header-content container">
-        <nav><a class="logo" href="http://dereckachy.github.io/dereckachy" title="Dereckachy Home">d</a>
-          <button class="nav-toggle" type="button" aria-controls="site-navigation" aria-expanded="false"><span class="nav-toggle-inner"></span><span class="btn-action">Toggle Navigation</span></button>
-        </nav>
         <h1 class="page-title"><span class="site-intro">Hi, I am Dereckachy.</span> <br/><span class="what-i-do">I Create</span> <br/>
           <span class="results">DISTINCTION</span><span class="hero-container"><svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
 viewBox="0 0 10610 2030"
@@ -87,5 +95,6 @@ viewBox="0 0 15800 10000"
         <p class="copyright">Copyright &copy; Dereckachy.com 2018. All rights reserved.  </p>
       </div>
     </footer>
+    <script src="./assets/js/interactions.js"></script>
   </body>
 </html>
