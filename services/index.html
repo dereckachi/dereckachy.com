@@ -8,14 +8,22 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet"/>
   </head>
   <body>
-    <div class="off-page-nav"></div>
+    <div id="mast-head"><a class="logo" href="http://dereckachy.github.io/dereckachy" title="Dereckachy Home">d</a>
+      <button class="nav-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" onclick="toggleMenu()"><span class="nav-toggle-inner"></span><span class="btn-action">Toggle Navigation</span></button>
+    </div>
+    <nav class="off-page calss" role="navigation" aria-hidden="true">
+      <div class="guide-line"></div>
+      <ul>
+        <li class="nav-link"><a class="action" href="/dereckachy/services/">Services<span class="action-arrow">⟶</span></a></li>
+        <li class="nav-link"><a class="action" href="/dereckachy/contact/">Contact<span class="action-arrow">⟶</span></a></li>
+        <li class="nav-link"><a class="action" href="/dereckachy/portfolio/">Portfolio<span class="action-arrow">⟶</span></a></li>
+        <li class="nav-link"><a class="action" href="/dereckachy/about/">About<span class="action-arrow">⟶</span></a></li>
+      </ul>
+    </nav>
     <header class="header" role="banner">
       <div class="header-img"></div>
       <div class="gradient-overlay"></div>
       <div class="header-content container">
-        <nav><a class="logo" href="http://dereckachy.github.io/dereckachy" title="Dereckachy Home">d</a>
-          <button class="nav-toggle" type="button" aria-controls="site-navigation" aria-expanded="false"><span class="nav-toggle-inner"></span><span class="btn-action">Toggle Navigation</span></button>
-        </nav>
         <h1 class="page-title">Services</h1>
       </div>
     </header>
@@ -158,5 +166,6 @@ viewBox="0 0 15800 10000"
         <p class="copyright">Copyright &copy; Dereckachy.com 2018. All rights reserved.  </p>
       </div>
     </footer>
+    <script src="../assets/js/interactions.js"></script>
   </body>
 </html>
