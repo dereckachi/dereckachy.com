@@ -64,6 +64,12 @@
     -webkit-transform: translateX(0) translateZ(0);
     transform: translateX(0) translateZ(0); } }
 
+@font-face {
+  font-family: 'arrow';
+  font-style: normal;
+  font-weight: 400;
+  src: local("arrow"), local("arrow"), url(../fonts/arrow.ttf) format("truetype"); }
+
 body {
   margin: 0;
   text-rendering: optimizeLegibility;
