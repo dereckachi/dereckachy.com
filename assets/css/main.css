@@ -162,7 +162,6 @@ section > p {
   animation: action 0.9s 0.05s cubic-bezier(0.26, 1.9, 0.63, 0.67); }
 
 .action-arrow {
-  font-family: 'Cambria Math';
   display: inline-block; }
 
 .main-content > .heading {
