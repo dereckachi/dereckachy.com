@@ -32,7 +32,7 @@ function toggleMenu() {
 
 }
 
-if (document.location.href==="http://dereckachy.github.io/dereckachy/") {
+if (document.location.href==="https://dereckachy.github.io/dereckachy/") {
   var heroTextSvg = document.querySelector('#hero-text-svg');
 
   if (matchMedia) {
@@ -51,7 +51,7 @@ if (document.location.href==="http://dereckachy.github.io/dereckachy/") {
 
 }
 
-if (document.location.href==="http://dereckachy.github.io/dereckachy/contact/") {
+if (document.location.href==="https://dereckachy.github.io/dereckachy/contact/") {
 
   var inputGroup = document.getElementsByClassName('input-group');
   var textBox = document.querySelector('#text-area');
