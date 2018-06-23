@@ -64,11 +64,45 @@
     -webkit-transform: translateX(0) translateZ(0);
     transform: translateX(0) translateZ(0); } }
 
+@-webkit-keyframes breathe {
+  50% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1); } }
+
+@keyframes breathe {
+  50% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1); } }
+
+@-webkit-keyframes scroll-down {
+  0% {
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px); }
+  50%, 100% {
+    -webkit-transform: translateY(60px);
+    transform: translateY(60px); } }
+
+@keyframes scroll-down {
+  0% {
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px); }
+  50%, 100% {
+    -webkit-transform: translateY(60px);
+    transform: translateY(60px); } }
+
+@-webkit-keyframes fade-in {
+  100% {
+    opacity: 1; } }
+
+@keyframes fade-in {
+  100% {
+    opacity: 1; } }
+
 @font-face {
-  font-family: 'arrow';
+  font-family: 'Action Arrow';
   font-style: normal;
   font-weight: 400;
-  src: local("arrow"), local("arrow"), url(../fonts/arrow.ttf) format("truetype"); }
+  src: local("Action Arrow"), url(../fonts/ActionArrow.woff) format("woff"); }
 
 body {
   margin: 0;
@@ -149,7 +183,7 @@ section > p {
   padding-bottom: 160px; }
   @media (min-width: 320px) and (max-width: 480px) {
     .what-next {
-      margin-top: 60px;
+      margin-top: 70px;
       padding-bottom: 100px; } }
 
 .what-next-link {
@@ -160,16 +194,19 @@ section > p {
   overflow: hidden; }
   @media (min-width: 320px) and (max-width: 480px) {
     .what-next-link {
-      font-size: 40px;
-      line-height: 40px; } }
+      font-size: 35px;
+      line-height: 35px; } }
 
 .action:hover .action-arrow, .action:focus .action-arrow {
   -webkit-animation: action 0.9s 0.05s cubic-bezier(0.26, 1.9, 0.63, 0.67);
   animation: action 0.9s 0.05s cubic-bezier(0.26, 1.9, 0.63, 0.67); }
 
 .action-arrow {
-  font-family: 'arrow'
+  font-family: "Action Arrow";
   display: inline-block; }
+
+.arrow-svg {
+  fill: cyan; }
 
 .main-content > .heading {
   margin-top: 120px;
@@ -334,7 +371,7 @@ section > p {
     position: relative;
     margin: 0 auto;
     color: white; }
-    .header .header-content .page-title, .header .header-content .site-welcome {
+    .header .header-content .page-title {
       font-size: 75.0006px;
       font-weight: 300;
       opacity: 0.3;
@@ -743,8 +780,9 @@ section > p {
     @media (min-width: 320px) and (max-width: 480px) {
       .service-display .service-module {
         width: 90vw;
-        -webkit-box-shadow: 0 15px 50px #ccc;
-        box-shadow: 0 15px 50px #ccc;
+        height: 550px;
+        -webkit-box-shadow: 0 0 30px #ddd;
+        box-shadow: 0 0 30px #ddd;
         position: static;
         margin: 0 auto !important;
         margin-bottom: 40px !important; }
@@ -928,103 +966,175 @@ section > p {
 
 .site-hero {
   overflow: hidden;
-  height: 100vh; }
+  height: 100vh;
+  overflow: hidden;
+  position: relative; }
   .site-hero .gradient-overlay {
-    -webkit-box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.1);
-    box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.1); }
-  .site-hero .header-content {
-    height: 100%; }
+    -webkit-box-shadow: inset 0 calc(-100vh + 100px) 0 0 rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 calc(-100vh + 100px) 0 0 rgba(0, 0, 0, 0.1); }
+    @media (min-width: 320px) and (max-width: 480px) {
+      .site-hero .gradient-overlay {
+        -webkit-box-shadow: inset 0 calc(-100vh + 70px) 0 0 rgba(0, 0, 0, 0.1);
+        box-shadow: inset 0 calc(-100vh + 70px) 0 0 rgba(0, 0, 0, 0.1); } }
+  @media (min-width: 320px) and (max-width: 480px) {
+    .site-hero .scroll-guide {
+      height: 50px;
+      width: 4px;
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.2);
+      bottom: 4px;
+      border-radius: 2.5px;
+      overflow: hidden;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      transform: translateX(-50%);
+      opacity: 0;
+      -webkit-animation: fade-in 0.5s 5s 1 ease-in-out forwards;
+      animation: fade-in 0.5s 5s 1 ease-in-out forwards; }
+      .site-hero .scroll-guide::before {
+        height: 10px;
+        width: 4px;
+        content: '';
+        position: absolute;
+        border-radius: inherit;
+        background-color: rgba(255, 255, 255, 0.7);
+        -webkit-animation: scroll-down 4s 6s ease-in-out infinite both;
+        animation: scroll-down 4s 6s ease-in-out infinite both; } }
+  .site-hero div.header-content {
+    height: 100%;
+    -webkit-box-shadow: none;
+    box-shadow: none; }
+  .site-hero h1 {
+    position: absolute;
+    left: -99999px; }
   .site-hero .site-welcome {
-    margin-top: 50px !important;
+    font-size: 75.0006px;
+    font-weight: 300;
+    letter-spacing: 1.5px;
+    margin-top: 50px;
     height: auto;
     margin-bottom: 0;
-    opacity: 1 !important;
+    opacity: 1;
     position: relative; }
-  .site-hero span {
-    color: rgba(255, 255, 255, 0.6);
-    display: block;
-    line-height: 1em;
-    position: absolute;
-    left: 0;
-    top: 0; }
-    .site-hero span:nth-child(3) {
-      margin-top: 30px; }
-    .site-hero span:nth-child(6) {
-      margin-top: 170px; }
-  .site-hero br {
-    font-size: 0; }
-  .site-hero .site-intro {
-    font-size: 16.6668px; }
-  .site-hero .what-i-do {
-    height: 55px;
-    text-indent: -2px;
-    line-height: 50px; }
-  .site-hero .hero-container {
-    height: 203px;
-    width: 1060px;
-    margin: 0; }
-    .site-hero .hero-container::after, .site-hero .hero-container::before {
-      height: 4px;
-      width: 100%;
-      background-color: white;
-      content: '';
-      left: 0;
+    .site-hero .site-welcome span {
+      color: rgba(255, 255, 255, 0.6);
+      display: block;
+      line-height: 1em;
       position: absolute;
-      opacity: 0;
-      -webkit-transform-origin: left;
-      -ms-transform-origin: left;
-      transform-origin: left;
-      -webkit-transform: scaleX(0);
-      -ms-transform: scaleX(0);
-      transform: scaleX(0);
-      -webkit-animation: distinguish 1.2s 3000ms ease forwards;
-      animation: distinguish 1.2s 3000ms ease forwards; }
-    .site-hero .hero-container::after {
-      bottom: -25px; }
-    .site-hero .hero-container::before {
-      top: -25px; }
-  .site-hero .hero-text .unit {
-    fill: #fff;
-    fill-rule: nonzero;
-    -webkit-transform: scaleY(2) rotateY(180deg);
-    transform: scaleY(2) rotateY(180deg);
-    -webkit-transform-origin: right;
-    -ms-transform-origin: right;
-    transform-origin: right;
-    position: relative;
-    opacity: 0;
-    -webkit-animation: drop-in 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    animation: drop-in 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
-    .site-hero .hero-text .unit:nth-child(1) {
-      -webkit-animation-delay: 1800ms;
-      animation-delay: 1800ms; }
-    .site-hero .hero-text .unit:nth-child(2) {
-      -webkit-animation-delay: 1900ms;
-      animation-delay: 1900ms; }
-    .site-hero .hero-text .unit:nth-child(3) {
-      -webkit-animation-delay: 2000ms;
-      animation-delay: 2000ms; }
-    .site-hero .hero-text .unit:nth-child(4) {
-      -webkit-animation-delay: 2100ms;
-      animation-delay: 2100ms; }
-    .site-hero .hero-text .unit:nth-child(5) {
-      -webkit-animation-delay: 2200ms;
-      animation-delay: 2200ms; }
-    .site-hero .hero-text .unit:nth-child(6) {
-      -webkit-animation-delay: 2300ms;
-      animation-delay: 2300ms; }
-    .site-hero .hero-text .unit:nth-child(7) {
-      -webkit-animation-delay: 2400ms;
-      animation-delay: 2400ms; }
-    .site-hero .hero-text .unit:nth-child(8) {
-      -webkit-animation-delay: 2500ms;
-      animation-delay: 2500ms; }
-    .site-hero .hero-text .unit:nth-child(9) {
-      -webkit-animation-delay: 2600ms;
-      animation-delay: 2600ms; }
-    .site-hero .hero-text .unit:nth-child(10) {
-      -webkit-animation-delay: 2700ms;
-      animation-delay: 2700ms; }
-    .site-hero .hero-text .unit:nth-child(11) {
-      -webkit-animation-delay: 2800ms;
-      animation-delay: 2800ms; }
+      left: 0;
+      top: 0; }
+      .site-hero .site-welcome span:nth-child(3) {
+        margin-top: 30px; }
+      .site-hero .site-welcome span:nth-child(6) {
+        margin-top: 170px; }
+    .site-hero .site-welcome br {
+      font-size: 0; }
+    .site-hero .site-welcome .site-intro {
+      font-size: 16.6668px; }
+    .site-hero .site-welcome .what-i-do {
+      height: 55px;
+      text-indent: -2px;
+      line-height: 50px; }
+    .site-hero .site-welcome .hero-container {
+      height: 203px;
+      width: 1060px;
+      margin: 0;
+      top: 0;
+      position: absolute;
+      margin-top: 170px; }
+      .site-hero .site-welcome .hero-container::after, .site-hero .site-welcome .hero-container::before {
+        height: 4px;
+        width: 100%;
+        background-color: white;
+        content: '';
+        left: 0;
+        position: absolute;
+        opacity: 0;
+        -webkit-transform-origin: left;
+        -ms-transform-origin: left;
+        transform-origin: left;
+        -webkit-transform: scaleX(0);
+        -ms-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-animation: distinguish 1.2s 3000ms ease forwards;
+        animation: distinguish 1.2s 3000ms ease forwards; }
+      .site-hero .site-welcome .hero-container::after {
+        bottom: -25px; }
+      .site-hero .site-welcome .hero-container::before {
+        top: -25px; }
+    .site-hero .site-welcome .hero-text-svg {
+      fill: #fff;
+      position: relative; }
+      .site-hero .site-welcome .hero-text-svg .hero-mob path, .site-hero .site-welcome .hero-text-svg .hero-mob polygon {
+        fill-rule: nonzero;
+        -webkit-transform: scaleY(2) rotateY(180deg);
+        transform: scaleY(2) rotateY(180deg);
+        -webkit-transform-origin: top;
+        -ms-transform-origin: top;
+        transform-origin: top;
+        position: relative;
+        opacity: 0;
+        -webkit-animation: drop-in 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        animation: drop-in 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+        .site-hero .site-welcome .hero-text-svg .hero-mob path:nth-child(1), .site-hero .site-welcome .hero-text-svg .hero-mob polygon:nth-child(1) {
+          -webkit-animation-delay: 1800ms;
+          animation-delay: 1800ms; }
+        .site-hero .site-welcome .hero-text-svg .hero-mob path:nth-child(2), .site-hero .site-welcome .hero-text-svg .hero-mob polygon:nth-child(2) {
+          -webkit-animation-delay: 1900ms;
+          animation-delay: 1900ms; }
+        .site-hero .site-welcome .hero-text-svg .hero-mob path:nth-child(3), .site-hero .site-welcome .hero-text-svg .hero-mob polygon:nth-child(3) {
+          -webkit-animation-delay: 2000ms;
+          animation-delay: 2000ms; }
+        .site-hero .site-welcome .hero-text-svg .hero-mob path:nth-child(4), .site-hero .site-welcome .hero-text-svg .hero-mob polygon:nth-child(4) {
+          -webkit-animation-delay: 2100ms;
+          animation-delay: 2100ms; }
+        .site-hero .site-welcome .hero-text-svg .hero-mob path:nth-child(5), .site-hero .site-welcome .hero-text-svg .hero-mob polygon:nth-child(5) {
+          -webkit-animation-delay: 2200ms;
+          animation-delay: 2200ms; }
+        .site-hero .site-welcome .hero-text-svg .hero-mob path:nth-child(6), .site-hero .site-welcome .hero-text-svg .hero-mob polygon:nth-child(6) {
+          -webkit-animation-delay: 2300ms;
+          animation-delay: 2300ms; }
+        .site-hero .site-welcome .hero-text-svg .hero-mob path:nth-child(7), .site-hero .site-welcome .hero-text-svg .hero-mob polygon:nth-child(7) {
+          -webkit-animation-delay: 2400ms;
+          animation-delay: 2400ms; }
+        .site-hero .site-welcome .hero-text-svg .hero-mob path:nth-child(8), .site-hero .site-welcome .hero-text-svg .hero-mob polygon:nth-child(8) {
+          -webkit-animation-delay: 2500ms;
+          animation-delay: 2500ms; }
+        .site-hero .site-welcome .hero-text-svg .hero-mob path:nth-child(9), .site-hero .site-welcome .hero-text-svg .hero-mob polygon:nth-child(9) {
+          -webkit-animation-delay: 2600ms;
+          animation-delay: 2600ms; }
+        .site-hero .site-welcome .hero-text-svg .hero-mob path:nth-child(10), .site-hero .site-welcome .hero-text-svg .hero-mob polygon:nth-child(10) {
+          -webkit-animation-delay: 2700ms;
+          animation-delay: 2700ms; }
+        .site-hero .site-welcome .hero-text-svg .hero-mob path:nth-child(11), .site-hero .site-welcome .hero-text-svg .hero-mob polygon:nth-child(11) {
+          -webkit-animation-delay: 2800ms;
+          animation-delay: 2800ms; }
+    @media (min-width: 320px) and (max-width: 480px) {
+      .site-hero .site-welcome {
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        margin-top: 70px;
+        margin: 0; }
+        .site-hero .site-welcome span, .site-hero .site-welcome .hero-container {
+          top: 70px; }
+        .site-hero .site-welcome span {
+          width: 100%;
+          text-align: center; }
+        .site-hero .site-welcome .site-intro {
+          margin-top: 20%;
+          font-size: 14px; }
+        .site-hero .site-welcome span.what-i-do {
+          margin-top: 24%;
+          font-size: 42px; }
+        .site-hero .site-welcome .hero-container {
+          width: 60vw;
+          height: auto;
+          margin-top: 55%;
+          margin-left: -30vw;
+          left: 50%; }
+          .site-hero .site-welcome .hero-container::after {
+            display: none; } }

@@ -5,9 +5,6 @@ var body = document.querySelector('body');
 var mastHead = document.querySelector('#mast-head');
 var navLinks = document.getElementsByClassName('nav-link')
 var hoverCount = 0;
-var inputGroup = document.getElementsByClassName('input-group');
-var textBox = document.querySelector('#text-area');
-var hiddenTextBox = document.querySelector('#hidden-text-box');
 
 function delayDisplay () {
   setTimeout(function () {
@@ -35,22 +32,49 @@ function toggleMenu() {
 
 }
 
-for (var  i = 0; i < inputGroup.length; i++) {
-  inputGroup[i].firstElementChild.addEventListener('blur', function () {
-    for (var  i = 0; i < inputGroup.length; i++) {
-    if (inputGroup[i].firstElementChild.value !== "") {
-      inputGroup[i].firstElementChild.classList.add('has-text');
-    } else { inputGroup[i].firstElementChild.classList.remove('has-text'); }
+if (document.location.href==="http://dereckachy.github.io/dereckachy/") {
+  var heroTextSvg = document.querySelector('#hero-text-svg');
+
+  if (matchMedia) {
+    var mq = window.matchMedia("(max-width: 480px)")
+    mq.addListener(widthChange)
+    widthChange(mq)
   }
-  })
+
+  function widthChange() {
+    if (mq.matches) {
+        heroTextSvg.setAttribute("viewBox", "0 0 100000 123400")
+    } else {
+      heroTextSvg.setAttribute("viewBox", "0 128900 100000 19100")
+    }
+  }
+
 }
 
-textBox.addEventListener('input', function () {
-  hiddenTextBox.value = textBox.value
-  var extraHeight = (hiddenTextBox.scrollHeight - 33)
-  if (hiddenTextBox.scrollHeight > 33) {
-    textBox.style.height = '' + (22 + extraHeight) + 'px'
-  } else {
-    textBox.style.height = ""
+if (document.location.href==="http://dereckachy.github.io/dereckachy/contact/") {
+
+  var inputGroup = document.getElementsByClassName('input-group');
+  var textBox = document.querySelector('#text-area');
+  var hiddenTextBox = document.querySelector('#hidden-text-box');
+
+  for (var  i = 0; i < inputGroup.length; i++) {
+    inputGroup[i].firstElementChild.addEventListener('blur', function () {
+      for (var  i = 0; i < inputGroup.length; i++) {
+      if (inputGroup[i].firstElementChild.value !== "") {
+        inputGroup[i].firstElementChild.classList.add('has-text');
+      } else { inputGroup[i].firstElementChild.classList.remove('has-text'); }
+    }
+    })
   }
-})
+
+  textBox.addEventListener('input', function () {
+    hiddenTextBox.value = textBox.value
+    var extraHeight = (hiddenTextBox.scrollHeight - 33)
+    if (hiddenTextBox.scrollHeight > 33) {
+      textBox.style.height = '' + (22 + extraHeight) + 'px'
+    } else {
+      textBox.style.height = ""
+    }
+  })
+
+}
