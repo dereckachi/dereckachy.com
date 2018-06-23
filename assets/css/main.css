@@ -969,13 +969,16 @@ section > p {
   height: 100%;
   overflow: hidden;
   position: relative; }
-  .site-hero .gradient-overlay {
-    -webkit-box-shadow: inset 0 calc(-100vh + 100px) 0 0 rgba(0, 0, 0, 0.1);
-    box-shadow: inset 0 calc(-100vh + 100px) 0 0 rgba(0, 0, 0, 0.1); }
-    @media (min-width: 320px) and (max-width: 480px) {
-      .site-hero .gradient-overlay {
-        -webkit-box-shadow: inset 0 calc(-100vh + 70px) 0 0 rgba(0, 0, 0, 0.1);
-        box-shadow: inset 0 calc(-100vh + 70px) 0 0 rgba(0, 0, 0, 0.1); } }
+  .site-hero .gradient-overlay::before {
+    height: 100%;
+    width: 100%;
+    content: '';
+    position: absolute;
+    top: 100px;
+    background-color: rgba(0, 0, 0, 0.1); }
+  @media (min-width: 320px) and (max-width: 480px) {
+    .site-hero .gradient-overlay::before {
+      top: 70px; } }
   @media (min-width: 320px) and (max-width: 480px) {
     .site-hero .scroll-guide {
       height: 60px;
@@ -1001,6 +1004,8 @@ section > p {
         animation: scroll-down 4s 6s ease-in-out infinite both; } }
   .site-hero div.header-content {
     height: 100%;
+    position: relative;
+    z-index: 4;
     -webkit-box-shadow: none;
     box-shadow: none; }
   .site-hero h1 {
@@ -1129,10 +1134,10 @@ section > p {
           margin-top: 24%;
           font-size: 42px; }
         .site-hero .site-welcome .hero-container {
-          width: 60vw;
+          width: 50vw;
           height: auto;
           margin-top: 55%;
-          margin-left: -30vw;
+          margin-left: -25vw;
           left: 50%; }
           .site-hero .site-welcome .hero-container::after {
             display: none; } }
