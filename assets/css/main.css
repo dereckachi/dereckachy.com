@@ -966,7 +966,7 @@ section > p {
 
 .site-hero {
   overflow: hidden;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
   position: relative; }
   .site-hero .gradient-overlay {
