@@ -31,26 +31,26 @@
 @-webkit-keyframes drop-in {
   100% {
     opacity: 1;
-    -webkit-transform: scaleY(1) rotateY(0);
-    transform: scaleY(1) rotateY(0); } }
+    -webkit-transform: scaleY(1) rotateY(0) translateZ(0);
+    transform: scaleY(1) rotateY(0) translateZ(0); } }
 
 @keyframes drop-in {
   100% {
     opacity: 1;
-    -webkit-transform: scaleY(1) rotateY(0);
-    transform: scaleY(1) rotateY(0); } }
+    -webkit-transform: scaleY(1) rotateY(0) translateZ(0);
+    transform: scaleY(1) rotateY(0) translateZ(0); } }
 
 @-webkit-keyframes distinguish {
   100% {
     opacity: 1;
-    -webkit-transform: scaleX(1);
-    transform: scaleX(1); } }
+    -webkit-transform: scaleX(1) translateZ(0);
+    transform: scaleX(1) translateZ(0); } }
 
 @keyframes distinguish {
   100% {
     opacity: 1;
-    -webkit-transform: scaleX(1);
-    transform: scaleX(1); } }
+    -webkit-transform: scaleX(1) translateZ(0);
+    transform: scaleX(1) translateZ(0); } }
 
 @-webkit-keyframes move-in {
   100% {
@@ -76,27 +76,31 @@
 
 @-webkit-keyframes scroll-down {
   0% {
-    -webkit-transform: translateY(-10px);
-    transform: translateY(-10px); }
-  50%, 100% {
-    -webkit-transform: translateY(60px);
-    transform: translateY(60px); } }
+    opacity: 0.8; }
+  10%, 50% {
+    -webkit-transform: translateY(10vw) scale(0, 2);
+    transform: translateY(10vw) scale(0, 2);
+    opacity: 0; }
+  90%, 100% {
+    opacity: 0.8; } }
 
 @keyframes scroll-down {
   0% {
-    -webkit-transform: translateY(-10px);
-    transform: translateY(-10px); }
-  50%, 100% {
-    -webkit-transform: translateY(60px);
-    transform: translateY(60px); } }
+    opacity: 0.8; }
+  10%, 50% {
+    -webkit-transform: translateY(10vw) scale(0, 2);
+    transform: translateY(10vw) scale(0, 2);
+    opacity: 0; }
+  90%, 100% {
+    opacity: 0.8; } }
 
 @-webkit-keyframes fade-in {
   100% {
-    opacity: 1; } }
+    opacity: 0.8; } }
 
 @keyframes fade-in {
   100% {
-    opacity: 1; } }
+    opacity: 0.8; } }
 
 @font-face {
   font-family: 'Action Arrow';
@@ -222,6 +226,22 @@ section > p {
       margin-left: 5vw;
       margin-top: 100px; } }
 
+.hero-text-container {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  background-image: -webkit-gradient(linear, left top, right top, from(#0f40d9), to(cyan));
+  background-image: -webkit-linear-gradient(left, #0f40d9, cyan);
+  background-image: -o-linear-gradient(left, #0f40d9, cyan);
+  background-image: linear-gradient(90deg, #0f40d9, cyan);
+  margin: 0 auto; }
+
+@media (min-width: 320px) and (max-width: 480px) {
+  main {
+    padding-top: 50px; }
+    main h2 {
+      margin-top: 0; } }
+
 .off-page {
   position: fixed;
   height: 100vh;
@@ -341,7 +361,7 @@ section > p {
   @media (min-width: 320px) and (max-width: 480px) {
     .header {
       height: 180px;
-      margin-bottom: 50px; }
+      margin-bottom: 0; }
       .header div.header-content {
         -webkit-box-shadow: inset 0 -110px 0 rgba(0, 0, 0, 0.1);
         box-shadow: inset 0 -110px 0 rgba(0, 0, 0, 0.1); } }
@@ -975,39 +995,39 @@ section > p {
     content: '';
     position: absolute;
     top: 100px;
-    background-color: rgba(0, 0, 0, 0.1); }
+    background-color: rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: none;
+    box-shadow: none; }
   @media (min-width: 320px) and (max-width: 480px) {
-    .site-hero .gradient-overlay::before {
-      top: 70px; } }
+    .site-hero .gradient-overlay {
+      -webkit-box-shadow: none;
+      box-shadow: none; }
+      .site-hero .gradient-overlay::before {
+        top: 70px; } }
   @media (min-width: 320px) and (max-width: 480px) {
     .site-hero .scroll-guide {
-      height: 60px;
-      width: 4px;
+      height: 7vw;
+      width: 3vw;
       position: absolute;
-      background-color: rgba(255, 255, 255, 0.2);
-      bottom: -10px;
+      background: url(../svg/action-arrow.svg) center/contain no-repeat;
+      bottom: 10vw;
       border-radius: 2.5px;
-      overflow: hidden;
       left: 50%;
-      margin-left: -2px;
+      margin-left: -1.5vw;
+      -webkit-transform-origin: bottom;
+      -ms-transform-origin: bottom;
+      transform-origin: bottom;
       opacity: 0;
-      -webkit-animation: fade-in 0.5s 5s 1 ease-in-out forwards;
-      animation: fade-in 0.5s 5s 1 ease-in-out forwards; }
-      .site-hero .scroll-guide::before {
-        height: 10px;
-        width: 4px;
-        content: '';
-        position: absolute;
-        border-radius: inherit;
-        background-color: rgba(255, 255, 255, 0.7);
-        -webkit-animation: scroll-down 4s 6s ease-in-out infinite both;
-        animation: scroll-down 4s 6s ease-in-out infinite both; } }
+      -webkit-animation: fade-in 0.5s 6s 1 ease-in-out forwards, scroll-down 5s 6.5s cubic-bezier(0.19, 1, 0.22, 1) 1 both;
+      animation: fade-in 0.5s 6s 1 ease-in-out forwards, scroll-down 5s 6.5s cubic-bezier(0.19, 1, 0.22, 1) 1 both; } }
   .site-hero div.header-content {
     height: 100%;
     position: relative;
-    z-index: 4;
-    -webkit-box-shadow: none;
-    box-shadow: none; }
+    z-index: 4; }
+    @media (min-width: 320px) and (max-width: 480px) {
+      .site-hero div.header-content {
+        -webkit-box-shadow: none;
+        box-shadow: none; } }
   .site-hero h1 {
     position: absolute;
     left: -99999px; }
@@ -1045,7 +1065,9 @@ section > p {
       margin: 0;
       top: 0;
       position: absolute;
-      margin-top: 170px; }
+      margin-top: 170px;
+      -webkit-perspective: 1000px;
+      perspective: 1000px; }
       .site-hero .site-welcome .hero-container::after, .site-hero .site-welcome .hero-container::before {
         height: 4px;
         width: 100%;
@@ -1069,48 +1091,48 @@ section > p {
     .site-hero .site-welcome .hero-text-svg {
       fill: #fff;
       position: relative; }
-      .site-hero .site-welcome .hero-text-svg .hero-mob path, .site-hero .site-welcome .hero-text-svg .hero-mob polygon {
+      .site-hero .site-welcome .hero-text-svg .hero-desk path, .site-hero .site-welcome .hero-text-svg .hero-desk polygon {
         fill-rule: nonzero;
+        -webkit-transform-origin: 203px;
+        -ms-transform-origin: 203px;
+        transform-origin: 203px;
         -webkit-transform: scaleY(2) rotateY(180deg);
         transform: scaleY(2) rotateY(180deg);
-        -webkit-transform-origin: top;
-        -ms-transform-origin: top;
-        transform-origin: top;
         position: relative;
         opacity: 0;
-        -webkit-animation: drop-in 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        animation: drop-in 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
-        .site-hero .site-welcome .hero-text-svg .hero-mob path:nth-child(1), .site-hero .site-welcome .hero-text-svg .hero-mob polygon:nth-child(1) {
+        -webkit-animation: drop-in 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        animation: drop-in 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+        .site-hero .site-welcome .hero-text-svg .hero-desk path:nth-child(1), .site-hero .site-welcome .hero-text-svg .hero-desk polygon:nth-child(1) {
           -webkit-animation-delay: 1800ms;
           animation-delay: 1800ms; }
-        .site-hero .site-welcome .hero-text-svg .hero-mob path:nth-child(2), .site-hero .site-welcome .hero-text-svg .hero-mob polygon:nth-child(2) {
+        .site-hero .site-welcome .hero-text-svg .hero-desk path:nth-child(2), .site-hero .site-welcome .hero-text-svg .hero-desk polygon:nth-child(2) {
           -webkit-animation-delay: 1900ms;
           animation-delay: 1900ms; }
-        .site-hero .site-welcome .hero-text-svg .hero-mob path:nth-child(3), .site-hero .site-welcome .hero-text-svg .hero-mob polygon:nth-child(3) {
+        .site-hero .site-welcome .hero-text-svg .hero-desk path:nth-child(3), .site-hero .site-welcome .hero-text-svg .hero-desk polygon:nth-child(3) {
           -webkit-animation-delay: 2000ms;
           animation-delay: 2000ms; }
-        .site-hero .site-welcome .hero-text-svg .hero-mob path:nth-child(4), .site-hero .site-welcome .hero-text-svg .hero-mob polygon:nth-child(4) {
+        .site-hero .site-welcome .hero-text-svg .hero-desk path:nth-child(4), .site-hero .site-welcome .hero-text-svg .hero-desk polygon:nth-child(4) {
           -webkit-animation-delay: 2100ms;
           animation-delay: 2100ms; }
-        .site-hero .site-welcome .hero-text-svg .hero-mob path:nth-child(5), .site-hero .site-welcome .hero-text-svg .hero-mob polygon:nth-child(5) {
+        .site-hero .site-welcome .hero-text-svg .hero-desk path:nth-child(5), .site-hero .site-welcome .hero-text-svg .hero-desk polygon:nth-child(5) {
           -webkit-animation-delay: 2200ms;
           animation-delay: 2200ms; }
-        .site-hero .site-welcome .hero-text-svg .hero-mob path:nth-child(6), .site-hero .site-welcome .hero-text-svg .hero-mob polygon:nth-child(6) {
+        .site-hero .site-welcome .hero-text-svg .hero-desk path:nth-child(6), .site-hero .site-welcome .hero-text-svg .hero-desk polygon:nth-child(6) {
           -webkit-animation-delay: 2300ms;
           animation-delay: 2300ms; }
-        .site-hero .site-welcome .hero-text-svg .hero-mob path:nth-child(7), .site-hero .site-welcome .hero-text-svg .hero-mob polygon:nth-child(7) {
+        .site-hero .site-welcome .hero-text-svg .hero-desk path:nth-child(7), .site-hero .site-welcome .hero-text-svg .hero-desk polygon:nth-child(7) {
           -webkit-animation-delay: 2400ms;
           animation-delay: 2400ms; }
-        .site-hero .site-welcome .hero-text-svg .hero-mob path:nth-child(8), .site-hero .site-welcome .hero-text-svg .hero-mob polygon:nth-child(8) {
+        .site-hero .site-welcome .hero-text-svg .hero-desk path:nth-child(8), .site-hero .site-welcome .hero-text-svg .hero-desk polygon:nth-child(8) {
           -webkit-animation-delay: 2500ms;
           animation-delay: 2500ms; }
-        .site-hero .site-welcome .hero-text-svg .hero-mob path:nth-child(9), .site-hero .site-welcome .hero-text-svg .hero-mob polygon:nth-child(9) {
+        .site-hero .site-welcome .hero-text-svg .hero-desk path:nth-child(9), .site-hero .site-welcome .hero-text-svg .hero-desk polygon:nth-child(9) {
           -webkit-animation-delay: 2600ms;
           animation-delay: 2600ms; }
-        .site-hero .site-welcome .hero-text-svg .hero-mob path:nth-child(10), .site-hero .site-welcome .hero-text-svg .hero-mob polygon:nth-child(10) {
+        .site-hero .site-welcome .hero-text-svg .hero-desk path:nth-child(10), .site-hero .site-welcome .hero-text-svg .hero-desk polygon:nth-child(10) {
           -webkit-animation-delay: 2700ms;
           animation-delay: 2700ms; }
-        .site-hero .site-welcome .hero-text-svg .hero-mob path:nth-child(11), .site-hero .site-welcome .hero-text-svg .hero-mob polygon:nth-child(11) {
+        .site-hero .site-welcome .hero-text-svg .hero-desk path:nth-child(11), .site-hero .site-welcome .hero-text-svg .hero-desk polygon:nth-child(11) {
           -webkit-animation-delay: 2800ms;
           animation-delay: 2800ms; }
     @media (min-width: 320px) and (max-width: 480px) {
@@ -1122,7 +1144,7 @@ section > p {
         box-sizing: border-box;
         margin-top: 70px;
         margin: 0; }
-        .site-hero .site-welcome span, .site-hero .site-welcome .hero-container {
+        .site-hero .site-welcome span, .site-hero .site-welcome .hero-text, .site-hero .site-welcome .hero-container {
           top: 70px; }
         .site-hero .site-welcome span {
           width: 100%;
@@ -1133,11 +1155,193 @@ section > p {
         .site-hero .site-welcome span.what-i-do {
           margin-top: 24%;
           font-size: 42px; }
-        .site-hero .site-welcome .hero-container {
-          width: 50vw;
-          height: auto;
+        .site-hero .site-welcome .hero-text {
+          position: absolute;
+          width: 1em;
+          height: 1.234em;
+          font-size: 50vw;
           margin-top: 55%;
-          margin-left: -25vw;
-          left: 50%; }
-          .site-hero .site-welcome .hero-container::after {
-            display: none; } }
+          left: 50%;
+          margin-left: -0.5em;
+          -webkit-perspective: 1000px;
+          perspective: 1000px; }
+          .site-hero .site-welcome .hero-text::before {
+            height: 4px;
+            width: 100%;
+            background-color: white;
+            content: '';
+            left: 0;
+            position: absolute;
+            opacity: 0;
+            -webkit-transform-origin: left;
+            -ms-transform-origin: left;
+            transform-origin: left;
+            -webkit-transform: scaleX(0) translateZ(0);
+            transform: scaleX(0) translateZ(0);
+            -webkit-animation: distinguish 1.2s 3000ms ease forwards;
+            animation: distinguish 1.2s 3000ms ease forwards; }
+          .site-hero .site-welcome .hero-text::before {
+            top: -25px; }
+          .site-hero .site-welcome .hero-text div {
+            background-size: contain;
+            position: absolute;
+            opacity: 0;
+            background-repeat: no-repeat;
+            -webkit-transform: scaleY(2) rotateY(180deg) translateZ(0);
+            transform: scaleY(2) rotateY(180deg) translateZ(0);
+            z-index: 0;
+            -webkit-animation: drop-in 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation: drop-in 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+            .site-hero .site-welcome .hero-text div:nth-child(3n + 1)::before {
+              height: 1px;
+              width: 1em;
+              background-color: rgba(255, 255, 255, 0.3);
+              content: '';
+              left: 0;
+              z-index: -1;
+              -webkit-transform-origin: left;
+              -ms-transform-origin: left;
+              transform-origin: left;
+              -webkit-transform: scaleX(0) translateZ(0);
+              transform: scaleX(0) translateZ(0);
+              bottom: -0.030em;
+              position: absolute; }
+            .site-hero .site-welcome .hero-text div:nth-child(1) {
+              -webkit-animation-delay: 1800ms;
+              animation-delay: 1800ms; }
+            .site-hero .site-welcome .hero-text div:nth-child(2) {
+              -webkit-animation-delay: 1900ms;
+              animation-delay: 1900ms; }
+            .site-hero .site-welcome .hero-text div:nth-child(3) {
+              -webkit-animation-delay: 2000ms;
+              animation-delay: 2000ms; }
+            .site-hero .site-welcome .hero-text div:nth-child(4) {
+              -webkit-animation-delay: 2100ms;
+              animation-delay: 2100ms; }
+            .site-hero .site-welcome .hero-text div:nth-child(5) {
+              -webkit-animation-delay: 2200ms;
+              animation-delay: 2200ms; }
+            .site-hero .site-welcome .hero-text div:nth-child(6) {
+              -webkit-animation-delay: 2300ms;
+              animation-delay: 2300ms; }
+            .site-hero .site-welcome .hero-text div:nth-child(7) {
+              -webkit-animation-delay: 2400ms;
+              animation-delay: 2400ms; }
+            .site-hero .site-welcome .hero-text div:nth-child(8) {
+              -webkit-animation-delay: 2500ms;
+              animation-delay: 2500ms; }
+            .site-hero .site-welcome .hero-text div:nth-child(9) {
+              -webkit-animation-delay: 2600ms;
+              animation-delay: 2600ms; }
+            .site-hero .site-welcome .hero-text div:nth-child(10) {
+              -webkit-animation-delay: 2700ms;
+              animation-delay: 2700ms; }
+            .site-hero .site-welcome .hero-text div:nth-child(11) {
+              -webkit-animation-delay: 2800ms;
+              animation-delay: 2800ms; }
+          .site-hero .site-welcome .hero-text .d-1 {
+            top: 0;
+            left: 0;
+            -webkit-transform-origin: 0.5em 0;
+            -ms-transform-origin: 0.5em 0;
+            transform-origin: 0.5em 0; }
+            .site-hero .site-welcome .hero-text .d-1::before {
+              -webkit-animation: distinguish 0.4s 4200ms ease forwards;
+              animation: distinguish 0.4s 4200ms ease forwards; }
+          .site-hero .site-welcome .hero-text .i-1 {
+            top: 0;
+            left: 0.471em;
+            -webkit-transform-origin: center;
+            -ms-transform-origin: center;
+            transform-origin: center; }
+          .site-hero .site-welcome .hero-text .s-1 {
+            top: 0;
+            left: 0.889em;
+            -webkit-transform-origin: calc(-0.5em + 100%) 0;
+            -ms-transform-origin: calc(-0.5em + 100%) 0;
+            transform-origin: calc(-0.5em + 100%) 0; }
+          .site-hero .site-welcome .hero-text .t-1 {
+            top: 0.321em;
+            left: 0;
+            -webkit-transform-origin: 0.5em -0.321em;
+            -ms-transform-origin: 0.5em -0.321em;
+            transform-origin: 0.5em -0.321em; }
+            .site-hero .site-welcome .hero-text .t-1::before {
+              -webkit-animation: distinguish 0.4s 4400ms ease forwards;
+              animation: distinguish 0.4s 4400ms ease forwards; }
+          .site-hero .site-welcome .hero-text .i-2 {
+            top: 0.321em;
+            left: 0.471em;
+            -webkit-transform-origin: center -0.321em;
+            -ms-transform-origin: center -0.321em;
+            transform-origin: center -0.321em; }
+          .site-hero .site-welcome .hero-text .n-1 {
+            top: 0.321em;
+            left: 0.870em;
+            -webkit-transform-origin: calc(-0.5em + 100%) -0.321em;
+            -ms-transform-origin: calc(-0.5em + 100%) -0.321em;
+            transform-origin: calc(-0.5em + 100%) -0.321em; }
+          .site-hero .site-welcome .hero-text .c-1 {
+            top: 0.634em;
+            left: 0;
+            -webkit-transform-origin: 0.5em -0.634em;
+            -ms-transform-origin: 0.5em -0.634em;
+            transform-origin: 0.5em -0.634em; }
+            .site-hero .site-welcome .hero-text .c-1::before {
+              -webkit-animation: distinguish 0.4s 4600ms ease forwards;
+              animation: distinguish 0.4s 4600ms ease forwards; }
+          .site-hero .site-welcome .hero-text .t-2 {
+            top: 0.634em;
+            left: 0.434em;
+            -webkit-transform-origin: center -0.634em;
+            -ms-transform-origin: center -0.634em;
+            transform-origin: center -0.634em; }
+          .site-hero .site-welcome .hero-text .i-3 {
+            top: 0.634em;
+            left: 0.944em;
+            -webkit-transform-origin: calc(-0.5em + 100%) -0.634em;
+            -ms-transform-origin: calc(-0.5em + 100%) -0.634em;
+            transform-origin: calc(-0.5em + 100%) -0.634em; }
+          .site-hero .site-welcome .hero-text .o-1 {
+            top: 0.949em;
+            left: 0;
+            -webkit-transform-origin: 0.5em -0.949em;
+            -ms-transform-origin: 0.5em -0.949em;
+            transform-origin: 0.5em -0.949em; }
+            .site-hero .site-welcome .hero-text .o-1::before {
+              -webkit-animation: distinguish 0.4s 4800ms ease forwards;
+              animation: distinguish 0.4s 4800ms ease forwards; }
+          .site-hero .site-welcome .hero-text .n-2 {
+            top: 0.949em;
+            left: 0.87em;
+            -webkit-transform-origin: calc(-0.5em + 100%) -0.949em;
+            -ms-transform-origin: calc(-0.5em + 100%) -0.949em;
+            transform-origin: calc(-0.5em + 100%) -0.949em; }
+          .site-hero .site-welcome .hero-text div[class^="d"] {
+            background-image: url(../svg/hero-mob-d.svg);
+            width: 0.144em;
+            height: 0.263em; }
+          .site-hero .site-welcome .hero-text div[class^="c"] {
+            background-image: url(../svg/hero-mob-c.svg);
+            width: 0.140em;
+            height: 0.270em; }
+          .site-hero .site-welcome .hero-text div[class^="i"] {
+            background-image: url(../svg/hero-mob-i.svg);
+            width: 0.056em;
+            height: 0.263em; }
+          .site-hero .site-welcome .hero-text div[class^="n"] {
+            background-image: url(../svg/hero-mob-n.svg);
+            width: 0.130em;
+            height: 0.285em; }
+          .site-hero .site-welcome .hero-text div[class^="o"] {
+            background-image: url(../svg/hero-mob-o.svg);
+            width: 0.160em;
+            height: 0.270em; }
+          .site-hero .site-welcome .hero-text div[class^="s"] {
+            background-image: url(../svg/hero-mob-s.svg);
+            width: 0.111em;
+            height: 0.270em; }
+          .site-hero .site-welcome .hero-text div[class^="t"] {
+            background-image: url(../svg/hero-mob-t.svg);
+            width: 0.132em;
+            height: 0.265em; } }
