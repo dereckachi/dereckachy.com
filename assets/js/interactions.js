@@ -42,11 +42,6 @@ if (document.location.href==="http://localhost:7880/html/pages/") {
   }
 
   function widthChange() {
-    if (mq.matches) {
-        heroTextSvg.setAttribute("viewBox", "0 0 100000 123400")
-    } else {
-      heroTextSvg.setAttribute("viewBox", "0 128900 100000 19100")
-    }
   }
 
 }
